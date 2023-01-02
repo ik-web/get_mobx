@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
 html {
   font-family: "Arial", sans-serif;
 }
@@ -27,7 +31,8 @@ html {
   justify-content: center;
   align-items: center;
   gap: 24px;
-  padding: 44px;
+  width: 288px;
+  padding: 40px 0;
   border: 4px double grey;
 
   &__count {
@@ -35,6 +40,7 @@ html {
     justify-content: space-between;
     gap: 8px;
     width: 100%;
+    padding: 0 32px;
   }
 
   &__buttons {
@@ -62,5 +68,45 @@ html {
     &:active {
       box-shadow: 0 0 0 transparent;
     }
+  }
+}
+
+.todos {
+  margin: 40px auto;
+
+  &__buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  &__button {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  width: 288px;
+  margin-bottom: 16px;
+  padding: 8px;
+
+  border: 4px double grey;
+
+  &__title {
+    flex-grow: 1;
+  }
+
+  &__checkbox,
+  &__button {
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
   }
 }
