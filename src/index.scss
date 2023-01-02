@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Arial", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 1200px;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 44px;
+  border: 4px double grey;
+
+  &__count {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    background: rgb(255, 136, 0);
+    border: none;
+    box-shadow: 1px 1px 4px black;
+
+    transition: all 0.1s linear;
+
+    &:hover {
+      background: orange;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+}
