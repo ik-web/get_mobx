@@ -5,6 +5,15 @@ import Layout from "../components/Layout";
 import counterState from "../store/counter";
 
 const Counter = () => {
+  const buttons = [
+    { name: "+1", handleClick: () => counterState.increment() },
+    { name: "-1", handleClick: () => counterState.decrement() },
+    { name: "+10", handleClick: () => counterState.plusTen() },
+    { name: "-10", handleClick: () => counterState.minusTen() },
+    { name: "+100", handleClick: () => counterState.plusHundred() },
+    { name: "-100", handleClick: () => counterState.minusHundred() },
+  ];
+
   return (
     <Layout>
       <div className="counter">
@@ -14,48 +23,15 @@ const Counter = () => {
         </h1>
 
         <div className="counter__buttons">
-          <button
-            className="counter__button button"
-            onClick={() => counterState.increment()}
-          >
-            +1
-          </button>
-          <button
-            className="counter__button button"
-            onClick={() => counterState.decrement()}
-          >
-            -1
-          </button>
-        </div>
-
-        <div className="counter__buttons">
-          <button
-            className="counter__button button"
-            onClick={() => counterState.plusTen()}
-          >
-            +10
-          </button>
-          <button
-            className="counter__button button"
-            onClick={() => counterState.minusTen()}
-          >
-            -10
-          </button>
-        </div>
-
-        <div className="counter__buttons">
-          <button
-            className="counter__button button"
-            onClick={() => counterState.plusHundred()}
-          >
-            +100
-          </button>
-          <button
-            className="counter__button button"
-            onClick={() => counterState.minusHundred()}
-          >
-            -100
-          </button>
+          {buttons.map((button) => (
+            <button
+              key={button.name}
+              className="counter__button button"
+              onClick={button.handleClick}
+            >
+              {button.name}
+            </button>
+          ))}
         </div>
       </div>
     </Layout>
