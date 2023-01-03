@@ -28,7 +28,7 @@ class Todo {
 
   async fetchTodos() {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=6"
+      "https://jsonplaceholder.typicode.com/todos?_limit=8"
     );
     const data = await response.json();
     this.todos = data;

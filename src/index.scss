@@ -13,16 +13,44 @@ html {
 }
 
 .app {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
-  max-width: 1200px;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 0 16px;
+.header {
+  background: orange;
+  padding: 12px 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__button {
+    width: 100px;
+    text-transform: uppercase;
+
+    border: none;
+  }
 }
 
 .counter {
@@ -32,6 +60,8 @@ html {
   align-items: center;
   gap: 24px;
   width: 288px;
+
+  margin-top: 60px;
   padding: 40px 0;
   border: 4px double grey;
 
@@ -72,17 +102,12 @@ html {
 }
 
 .todos {
-  margin: 40px auto;
+  margin: 60px auto 24px;
 
   &__buttonContainer {
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  &__button {
-    padding: 8px 12px;
-    cursor: pointer;
+    margin-bottom: 24px;
   }
 }
 
@@ -109,4 +134,15 @@ html {
 
     cursor: pointer;
   }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.button {
+  padding: 8px 12px;
+  cursor: pointer;
 }
