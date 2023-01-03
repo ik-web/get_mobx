@@ -89,6 +89,10 @@ html {
 .todos {
   margin: 60px auto 24px;
 
+  &__hint {
+    margin-top: 120px;
+  }
+
   &__buttonContainer {
     display: flex;
     justify-content: center;

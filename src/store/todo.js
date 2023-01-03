@@ -3,6 +3,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 class Todo {
   todos = [];
   completedIsHidden = false;
+  isLoading = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -23,28 +24,45 @@ class Todo {
   }
 
   async fetchTodos() {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=8"
-    );
-    const data = await response.json();
+    try {
+      runInAction(() => {
+        this.isLoading = true;
+      });
 
-    runInAction(() => {
-      this.todos = data;
-    });
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=8"
+      );
+
+      const data = await response.json();
+
+      runInAction(() => {
+        this.todos = data;
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      runInAction(() => {
+        this.isLoading = false;
+      });
+    }
   }
 
   async removeTodo(id) {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/todos/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
-    if (response.ok) {
-      runInAction(() => {
-        this.todos = this.todos.filter((todo) => todo.id !== id);
-      });
+      if (response.ok) {
+        runInAction(() => {
+          this.todos = this.todos.filter((todo) => todo.id !== id);
+        });
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
 
