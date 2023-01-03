@@ -8,7 +8,9 @@ class Page {
   }
 
   setCurrentPage(path) {
-    this.currentPagePath = path;
+    if (this.currentPagePath !== path) {
+      this.currentPagePath = path;
+    }
   }
 }
 

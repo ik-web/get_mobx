@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 class Todo {
   todos = [];
@@ -18,10 +18,6 @@ class Todo {
     );
   }
 
-  removeTodo(id) {
-    this.todos = this.todos.filter((todo) => todo.id !== id);
-  }
-
   hideTodo() {
     this.completedIsHidden = !this.completedIsHidden;
   }
@@ -31,7 +27,25 @@ class Todo {
       "https://jsonplaceholder.typicode.com/todos?_limit=8"
     );
     const data = await response.json();
-    this.todos = data;
+
+    runInAction(() => {
+      this.todos = data;
+    });
+  }
+
+  async removeTodo(id) {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/todos/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.ok) {
+      runInAction(() => {
+        this.todos = this.todos.filter((todo) => todo.id !== id);
+      });
+    }
   }
 
   get filteredTodos() {
