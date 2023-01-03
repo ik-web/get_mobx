@@ -22,7 +22,7 @@ class Counter {
   };
 
   minusTen() {
-    if (this.count > 10) {
+    if (this.count >= 10) {
       this.count -= 10;
     };
   };
@@ -32,7 +32,7 @@ class Counter {
   };
 
   minusHundred() {
-    if (this.count > 100) {
+    if (this.count >= 100) {
       this.count -= 100;
     };
   };
