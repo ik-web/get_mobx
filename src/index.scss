@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+a {
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
 li {
   list-style: none;
 }
@@ -42,14 +48,12 @@ html {
 
   &__nav {
     display: flex;
-    gap: 40px;
+    gap: 24px;
   }
 
-  &__button {
+  &__link {
     width: 100px;
-    text-transform: uppercase;
-
-    border: none;
+    text-align: center;
   }
 }
 
@@ -138,6 +142,7 @@ html {
 .button {
   padding: 8px 12px;
 
+  background: lightgrey;
   border: none;
   box-shadow: 1px 1px 4px black;
   cursor: pointer;
