@@ -83,21 +83,6 @@ html {
     height: 40px;
 
     font-size: 24px;
-    cursor: pointer;
-
-    background: rgb(255, 136, 0);
-    border: none;
-    box-shadow: 1px 1px 4px black;
-
-    transition: all 0.1s linear;
-
-    &:hover {
-      background: orange;
-    }
-
-    &:active {
-      box-shadow: 0 0 0 transparent;
-    }
   }
 }
 
@@ -108,6 +93,10 @@ html {
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+  }
+
+  &__button {
+    width: 160px;
   }
 }
 
@@ -144,5 +133,24 @@ html {
 
 .button {
   padding: 8px 12px;
+
+  border: none;
+  box-shadow: 1px 1px 4px black;
   cursor: pointer;
+
+  transition: all 0.1s linear;
+
+  &:focus,
+  &:hover {
+    background: grey;
+    color: white;
+  }
+
+  &:active {
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+.isActive {
+  box-shadow: 0 0 0 transparent;
 }

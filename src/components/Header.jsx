@@ -1,8 +1,20 @@
+import classNames from "classnames";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import pageState from "../store/page";
+
 
 const Header = () => {
   const navigate = useNavigate();
+  const buttons = [
+    { name: "Counter", path: "/counter" },
+    { name: "Todo list", path: "/todos" },
+  ];
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    pageState.setCurrentPage(path);
+  }
 
   return (
     <div className="header">
@@ -11,19 +23,18 @@ const Header = () => {
           <h2 className="header__logo">{`<< Get MobX >>`}</h2>
 
           <nav className="header__nav">
-            <button
-              className="header__button button"
-              onClick={() => navigate("/counter")}
-            >
-              Counter
-            </button>
+            {buttons.map((button) => (
+              <button
+                key={button.name}
+                className={classNames("header__button button", {
+                  isActive: button.path === pageState.currentPagePath,
+                })}
 
-            <button
-              className="header__button button"
-              onClick={() => navigate("/todos")}
-            >
-              Todo list
-            </button>
+                onClick={() => handleNavigate(button.path)}
+              >
+                {button.name}
+              </button>
+            ))}
           </nav>
         </div>
       </div>
