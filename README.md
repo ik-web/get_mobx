@@ -29,7 +29,6 @@ A simple practical work to familiarize with the MobX state manager
 - MobX `npm install --save mobx`
 - Mobx-React for function components `mobx-react-lite`
 - SCSS preprocessor `npm install sass`
-- ClassNames `npm install classnames`
 - gh-pages `npm install gh-pages --save-dev`
 
 **Project Setup**
