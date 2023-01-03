@@ -1,11 +1,18 @@
-import { observer } from "mobx-react-lite";
 import React, { useEffect } from "react";
+import { observer } from "mobx-react-lite";
+
 import todoState from "../store/todo";
 import Todo from "../components/Todo";
 import Layout from "../components/Layout";
+import { useLocation } from "react-router-dom";
+import pageState from "../store/page";
+
 
 const TodoList = () => {
+  const pagePath = useLocation().pathname;
+
   useEffect(() => {
+    pageState.setCurrentPagePath(pagePath)
     todoState.fetchTodos();
   }, []);
 

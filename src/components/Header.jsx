@@ -1,6 +1,7 @@
-import classNames from "classnames";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+
 import pageState from "../store/page";
 
 
@@ -10,11 +11,6 @@ const Header = () => {
     { name: "Counter", path: "/counter" },
     { name: "Todo list", path: "/todos" },
   ];
-
-  const handleNavigate = (path) => {
-    navigate(path);
-    pageState.setCurrentPage(path);
-  }
 
   return (
     <div className="header">
@@ -30,7 +26,7 @@ const Header = () => {
                   isActive: button.path === pageState.currentPagePath,
                 })}
 
-                onClick={() => handleNavigate(button.path)}
+                onClick={() => navigate(button.path)}
               >
                 {button.name}
               </button>

@@ -1,9 +1,18 @@
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import React from "react";
+import { useLocation } from "react-router-dom";
+
 import Layout from "../components/Layout";
 import counterState from "../store/counter";
+import pageState from "../store/page";
 
 const Counter = () => {
+  const pagePath = useLocation().pathname;
+
+  useEffect(() => {
+    pageState.setCurrentPagePath(pagePath)
+  }, []);
+
   return (
     <Layout>
       <div className="counter">

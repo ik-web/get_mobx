@@ -1,13 +1,13 @@
 import { makeAutoObservable } from "mobx";
 
 class Page {
-  currentPagePath = "/counter";
+  currentPagePath = "";
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  setCurrentPage(path) {
+  setCurrentPagePath(path) {
     if (this.currentPagePath !== path) {
       this.currentPagePath = path;
     }
